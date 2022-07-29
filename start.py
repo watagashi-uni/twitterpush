@@ -68,9 +68,8 @@ def checktwitter():
 
 
 def sendpush(authorid, twiid):
-    # [CQ:image,file=file:///E:\工程文件夹2\bot\unibot\piccache\pjskinfo73.png]
-    groupport = 5678
-    guildport = 1988
+    groupport = 5678  # cqhttp端口
+    guildport = 1988  # 频道bot http端口
     with open('yamls/twitterpush.yaml', "r") as f:
         data = yaml.load(f, Loader=yaml.FullLoader)
     # 群推送

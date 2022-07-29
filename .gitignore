@@ -4,3 +4,5 @@ twitterpush.yaml
 /.gitattributes
 /.idea
 /__pycache__
+/AppleEmoji
+/emoji2pic/__pycache__
