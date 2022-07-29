@@ -92,7 +92,7 @@ servers:
 
 ### 推送群配置
 
-重命名`twitterpush.example.yaml`到`twitterpush.yaml`，按照格式填入你要推送的id和对应群号，如果不需要频道bot推送可直接上去下面的`guild`项
+重命名`twitterpush.example.yaml`到`twitterpush.yaml`，按照格式填入你要推送的id和对应群号，如果不需要频道bot推送可直接删去下面的`guild`项
 
 ```yaml
 group:
