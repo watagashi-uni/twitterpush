@@ -26,7 +26,6 @@
 
 然后重命名`config.example.py`到`config.py`，将你的 RSSHUB 地址（带最后的斜杠），googleapiskey 填入相应的地方。如果你不需要代理，请将`proxies` 的值改为 `None`。如果你不想注册 YouTube API，可以将`googleapiskey`的值设为`None`，这样推文带有youtube链接时将不会自动解析。
 
-
 然后准备一个公开的推特账号，新建一个列表，推特id和列表名字要是全英文，不能太长。之后在列表内添加你要抓取的推特账号。
 
 > 注意：将推特添加到公开列表，对方会收到通知，不适合推送粉丝比较少的个人推特
@@ -38,6 +37,10 @@
 如果没有问题，打开`config.py`，将`你的推特id/你的列表名`填入`twitterlist`项
 
 如果显示错误，请检查列表是否公开，推特是否公开，列表用户是否有最近的推文，推特id和列表id是否全英文并且很短（很长的id一定概率无法识别）
+
+然后在 [SkywalkerSpace/emoji2pic-python](https://github.com/SkywalkerSpace/emoji2pic-python) 项目的 releases 里下载图片包，解压到当前项目根目录下的`AppleEmoji`文件夹内（打开该文件夹后应全是emoji图片）
+
+然后在当前项目根目录下新建一个`piccache`文件夹
 
 如果上面这些都完成且无问题，恭喜你，你已经完成了相应的准备工作。
 
@@ -104,3 +107,17 @@ guild:
 ```
 
 可以自己添加一个测试账号，然后运行`start.py`，在第一次抓取后用测试账号尝试随便发一个推，如果配置得当则会推送到设置的相应群
+
+## 支持与贡献
+
+觉得好用可以给这个项目点个 Star 。
+
+有意见或者建议也欢迎提交 [Issues](https://github.com/watagashi-uni/Unibot/issues) 和 [Pull requests](https://github.com/watagashi-uni/Unibot/pulls)。
+
+
+## 特别感谢
+- [Mrs4s/go-cqhttp](https://github.com/Mrs4s/go-cqhttp): 基于 [Mirai](https://github.com/mamoe/mirai) 以及 [MiraiGo](https://github.com/Mrs4s/MiraiGo) 的 [OneBot](https://github.com/howmanybots/onebot/blob/master/README.md) Golang 原生实现 
+- [Lxns-Network/nakuru-project](https://github.com/Lxns-Network/nakuru-project)：一款为 go-cqhttp 的正向 WebSocket 设计的 Python SDK
+- [chinosk114514/QQ-official-guild-bot](https://github.com/chinosk114514/QQ-official-guild-bot): QQ官方频道机器人SDK
+- [SkywalkerSpace/emoji2pic-python](https://github.com/SkywalkerSpace/emoji2pic-python): Apple emoji and text to picture
+

@@ -93,5 +93,7 @@ def sendgroupmsg(qun, text, port=5678):
 if __name__ == '__main__':
     checktwitter()
     scheduler = BlockingScheduler()
+    cleancache()
     scheduler.add_job(checktwitter, 'interval', seconds=30, id='checktwitter')
+    scheduler.add_job(cleancache, 'interval', seconds=300, id='cleancache')
     scheduler.start()
