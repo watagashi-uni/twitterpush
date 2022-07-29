@@ -14,7 +14,7 @@
 
 你需要一个支持 [Onebot](https://github.com/botuniverse/onebot) 协议的机器人框架，如 QQ端 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp)，QQ频道端 [chinosk114514/QQ-official-guild-bot](https://github.com/chinosk114514/QQ-official-guild-bot)
 
-该项目刷新依赖 [RSSHUB](https://docs.rsshub.app/) 源，官方提供的地址缓存时间太长，不适合做及时推特推送，所以简易自建 RSSHUB。自建可参考 [RSSHUB部署文档](https://docs.rsshub.app/install/)
+该项目刷新依赖 [RSSHUB](https://docs.rsshub.app/) 源，官方提供的地址缓存时间太长，不适合做及时推特推送，所以简易自建 RSSHUB。你也可以白嫖别人的，但缓存时间很短的公开 RSSHUB 一般很难找到。自建可参考 [RSSHUB部署文档](https://docs.rsshub.app/install/)
 
 注意：如果自建 RSSHUB，你需要注册一个 [Twitter Developer Account](https://apps.twitter.com/)，然后根据 [部分 RSS 模块配置](https://docs.rsshub.app/install/#pei-zhi-bu-fen-rss-mo-kuai-pei-zhi) 中 `Twitter 全部路由` 的介绍将一些值填入相应的位置。
 
@@ -22,13 +22,16 @@
 
 ![pic2](pics/rsshub.png)
 
-油管视频数据抓取需要 YouTube API，[申请地址](https://console.developers.google.com/)
+油管视频数据抓取需要 YouTube API，[申请地址](https://console.developers.google.com/)。
 
-然后重命名`config.example.py`到`config.py`，将你的 RSSHUB 地址（带最后的斜杠），googleapiskey 填入相应的地方。如果你不需要代理，将`proxies` 的值改为 `None`
+然后重命名`config.example.py`到`config.py`，将你的 RSSHUB 地址（带最后的斜杠），googleapiskey 填入相应的地方。如果你不需要代理，请将`proxies` 的值改为 `None`。如果你不想注册 YouTube API，可以将`googleapiskey`的值设为`None`，这样推文带有youtube链接时将不会自动解析。
+
+
+然后准备一个公开的推特账号，新建一个列表，推特id和列表名字要是全英文，不能太长。之后在列表内添加你要抓取的推特账号。
 
 > 注意：将推特添加到公开列表，对方会收到通知，不适合推送粉丝比较少的个人推特
 
-然后准备一个公开的推特账号，新建一个列表，推特id和列表名字要是全英文，不能太长。之后在列表内添加你要抓取的推特账号，尝试一下访问`你的rsshub地址/twitter/list/你的推特id/你的列表名`，如果一切正常，网页会显示一个带有列表用户最新推文的xml。
+尝试一下访问`你的rsshub地址/twitter/list/你的推特id/你的列表名`，如果一切正常，网页会显示一个带有列表用户最新推文的xml。
 
 ![pic3](pics/list.png)
 

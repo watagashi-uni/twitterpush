@@ -206,37 +206,38 @@ def gentwiimg(twitterdata):
 
         high = 270 + textimg.size[1] + 470 * 2
     elif 'youtu.be/' in text:
-        pattern = re.compile('(?<=youtu.be/)([a-zA-Z0-9-_=]+)')
-        youtubeid = pattern.search(text).group()
-        redata = requests.get(f'https://www.googleapis.com/youtube/v3/videos?id={youtubeid}'
-                              f'&part=snippet%2CcontentDetails%2Cstatistics&key={googleapiskey}', proxies=proxies)
-        youtubedata = json.loads(redata.content)
-        picre = requests.get(youtubedata['items'][0]['snippet']['thumbnails']['medium']['url'], proxies=proxies)
-        pic = Image.open(BytesIO(picre.content))
-        pic = pic.resize((950, int(950 * pic.size[1] / pic.size[0])))
-        img.paste(pic, (60, 235 + textimg.size[1]))
+        if googleapiskey is not None:
+            pattern = re.compile('(?<=youtu.be/)([a-zA-Z0-9-_=]+)')
+            youtubeid = pattern.search(text).group()
+            redata = requests.get(f'https://www.googleapis.com/youtube/v3/videos?id={youtubeid}'
+                                  f'&part=snippet%2CcontentDetails%2Cstatistics&key={googleapiskey}', proxies=proxies)
+            youtubedata = json.loads(redata.content)
+            picre = requests.get(youtubedata['items'][0]['snippet']['thumbnails']['medium']['url'], proxies=proxies)
+            pic = Image.open(BytesIO(picre.content))
+            pic = pic.resize((950, int(950 * pic.size[1] / pic.size[0])))
+            img.paste(pic, (60, 235 + textimg.size[1]))
 
-        play = Image.open(r'pics/play.png')
-        play = play.resize((150, 150))
-        r, g, b, mask = play.split()
-        img.paste(play, (460, 140 + textimg.size[1] + int(pic.size[1] / 2)), mask)
+            play = Image.open(r'pics/play.png')
+            play = play.resize((150, 150))
+            r, g, b, mask = play.split()
+            img.paste(play, (460, 140 + textimg.size[1] + int(pic.size[1] / 2)), mask)
 
-        play = Image.open(r'pics/youtube.png')
-        img.paste(play, (50, 160 + textimg.size[1]))
+            play = Image.open(r'pics/youtube.png')
+            img.paste(play, (50, 160 + textimg.size[1]))
 
-        font_style = ImageFont.truetype(r"fonts\SourceHanSansCN-Bold.otf", 40)
-        draw.text((60, 250 + textimg.size[1] + pic.size[1]),
-                  youtubedata['items'][0]['snippet']['title'], fill=(0, 0, 0), font=font_style)
+            font_style = ImageFont.truetype(r"fonts\SourceHanSansCN-Bold.otf", 40)
+            draw.text((60, 250 + textimg.size[1] + pic.size[1]),
+                      youtubedata['items'][0]['snippet']['title'], fill=(0, 0, 0), font=font_style)
 
-        n = ImgText(youtubedata['items'][0]['snippet']['description'].replace('\n', ' '))
-        des = n.draw_text()
-        img.paste(des, (60, 320 + textimg.size[1] + pic.size[1]))
+            n = ImgText(youtubedata['items'][0]['snippet']['description'].replace('\n', ' '))
+            des = n.draw_text()
+            img.paste(des, (60, 320 + textimg.size[1] + pic.size[1]))
 
-        play = Image.open(r'pics/getyoutube.png')
-        play = play.resize((1000, int(1000*play.size[1]/play.size[0])))
-        img.paste(play, (40, 300 + textimg.size[1] + pic.size[1] + des.size[1]))
+            play = Image.open(r'pics/getyoutube.png')
+            play = play.resize((1000, int(1000*play.size[1]/play.size[0])))
+            img.paste(play, (40, 300 + textimg.size[1] + pic.size[1] + des.size[1]))
 
-        high = 500 + textimg.size[1] + pic.size[1] + des.size[1]
+            high = 500 + textimg.size[1] + pic.size[1] + des.size[1]
 
     utc_date = datetime.datetime.strptime(twitterdata['pubDate'], "%a, %d %b %Y %H:%M:%S GMT")
     local_date = utc_date + datetime.timedelta(hours=8)
