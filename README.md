@@ -106,6 +106,8 @@ guild:
 
 可以自己添加一个测试账号，然后运行`start.py`，在第一次抓取后用测试账号尝试随便发一个推，如果配置得当则会推送到设置的相应群
 
+抓取时间默认为30s，可以在`start.py`中第97行`scheduler.add_job(checktwitter, 'interval', seconds=30, id='checktwitter')`修改
+
 ## 支持与贡献
 
 觉得好用可以给这个项目点个 Star 。
