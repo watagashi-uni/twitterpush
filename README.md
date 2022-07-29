@@ -1,6 +1,6 @@
 # Unibot 推特推送模块
 
-基于 [RSSHUB](https://docs.rsshub.app/)，[Onebot](https://github.com/botuniverse/onebot) HTTP协议独立运行的推特推送模块
+基于 [RSSHUB](https://docs.rsshub.app/)，[Onebot](https://github.com/botuniverse/onebot) HTTP 协议的QQ群/频道推特推送模块
 
 ## 示例
 
