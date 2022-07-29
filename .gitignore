@@ -1,0 +1,6 @@
+config.py
+twitterpush.yaml
+/piccache
+/.gitattributes
+/.idea
+/__pycache__
