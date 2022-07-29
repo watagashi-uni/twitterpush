@@ -70,7 +70,7 @@ def checktwitter():
 def sendpush(authorid, twiid):
     groupport = 5678  # cqhttp端口
     guildport = 1988  # 频道bot http端口
-    with open('yamls/twitterpush.yaml', "r") as f:
+    with open('twitterpush.yaml', "r") as f:
         data = yaml.load(f, Loader=yaml.FullLoader)
     # 群推送
     try:
