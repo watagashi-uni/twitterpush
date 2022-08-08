@@ -6,7 +6,7 @@ import xmltodict
 import yaml
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-from config import rsshub, twitterlist, proxies
+from config import rsshub, twitterlist, proxies, guildport, groupport
 from twitter import gentwiimg
 
 twitter = {}
